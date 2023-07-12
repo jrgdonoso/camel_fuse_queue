@@ -153,13 +153,15 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http-jetty</artifactId>
+			<version>3.6.0</version>
 		</dependency>
 
 
-		<dependency>
+		<!--<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-		</dependency>
+			<version>latest</version>
+		</dependency>-->
 
 		<!--<dependency>
 			<groupId>org.apache.camel</groupId>
@@ -181,10 +183,10 @@
 		</dependency>-->
 
 
-		<dependency>
+		<!--<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>mssql-jdbc</artifactId>
-		</dependency>
+		</dependency>-->
 
 
 		<!-- https://mvnrepository.com/artifact/jakarta.jws/jakarta.jws-api 
@@ -241,8 +243,6 @@
 						<id>generate-sources</id>
 						<phase>generate-sources</phase>
 						<configuration>
-							<!--
-                            <sourceRoot>${project.build.directory}/generated-sources/cxf</sourceRoot>-->
 							<sourceRoot>${basedir}/src/main/java</sourceRoot>
 							<wsdlOptions>
 								<wsdlOption>
@@ -263,7 +263,7 @@
 	</build>
 
 	<repositories>
-		<!--<repository>
+		<repository>
 			<id>Komatsu_Feed@Local</id>
 			<url>
                 https://pkgs.dev.azure.com/KomatsuLatinoamerica/KCC-ActualizacionFuse/_packaging/Komatsu_Feed%40Local/maven/v1
@@ -290,10 +290,10 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-		</repository>-->
+		</repository>
 	</repositories>
 	<pluginRepositories>
-		<!--<pluginRepository>
+		<pluginRepository>
 			<id>redhat-ga-repository</id>
 			<url>https://maven.repository.redhat.com/ga</url>
 			<releases />
@@ -308,6 +308,6 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-		</pluginRepository>-->
+		</pluginRepository>
 	</pluginRepositories>
 </project>
