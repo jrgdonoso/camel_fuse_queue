@@ -1,0 +1,7 @@
+cl\komatsu\OrdenServicioExtraccionColaApplication.class
+cl\komatsu\ingresoordenservicio\ListaoperacionesType.class
+cl\komatsu\sqsordenservicioresoextcolakrcc\SqsIngresoOrdenServicioExtCola.class
+cl\komatsu\ingresoordenservicio\ObjectFactory.class
+cl\komatsu\ingresoordenservicio\ListaoperacionesType$OPERACION.class
+cl\komatsu\ingresoordenservicio\package-info.class
+cl\komatsu\sapordenservicioresoextcolakrcc\SapIngresoOrdenServicioExtCola.class

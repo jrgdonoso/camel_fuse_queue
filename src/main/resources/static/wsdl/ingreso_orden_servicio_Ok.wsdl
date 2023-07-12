@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://ingresoordenservicio.komatsu.cl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ingresoordenservicio.komatsu.cl" targetNamespace="http://ingresoordenservicio.komatsu.cl">
+  <wsdl:types>
+    <xs:schema xmlns:ns="http://ingresoordenservicio.komatsu.cl" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ingresoordenservicio.komatsu.cl">
+
+    <xs:complexType name="listaoperacionesType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="OPERACION">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="VORNR" type="xs:string"/>
+                        <xs:element name="APLZL" type="xs:string"/>
+                        <xs:element name="ARBID" type="xs:string"/>
+                        <xs:element name="STEUS" type="xs:string"/>
+                        <xs:element name="KTSCH" type="xs:string"/>
+                        <xs:element name="KTEXT" type="xs:string"/>
+                        <xs:element name="PLNNR" type="xs:string"/>
+                        <xs:element name="ZAEHL" type="xs:string"/>
+                        <xs:element name="ARBEI" type="xs:string"/>
+                        <xs:element name="FSAVD" type="xs:string"/>
+                        <xs:element name="RUECK" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="IngresoOrdenServicio">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="AUFNR" type="xs:string"/>
+                <xs:element name="FKDAT" type="xs:string"/>
+                <xs:element name="MAUFNR" type="xs:string"/>
+                <xs:element name="AUART" type="xs:string"/>
+                <xs:element name="KDAUF" type="xs:string"/>
+                <xs:element name="ERDAT" type="xs:string"/>
+                <xs:element name="KTEXT" type="xs:string"/>
+                <xs:element name="SYSST" type="xs:string"/>
+                <xs:element name="BUKRS" type="xs:string"/>
+                <xs:element name="VAPLZ" type="xs:string"/>
+                <xs:element name="PLGRP" type="xs:string"/>
+                <xs:element name="KUNUM" type="xs:string"/>
+                <xs:element name="NAME1" type="xs:string"/>
+                <xs:element name="EQUNR" type="xs:string"/>
+                <xs:element name="SHTXT" type="xs:string"/>
+                <xs:element name="EQART" type="xs:string"/>
+                <xs:element name="SERNR" type="xs:string"/>
+                <xs:element name="MATNR" type="xs:string"/>
+                <xs:element name="RECDV" type="xs:string"/>
+                <xs:element name="ILART" type="xs:string"/>
+                <xs:element name="TYPBZ" type="xs:string"/>
+                <xs:element name="SWERK" type="xs:string"/>
+                <xs:element name="STORT" type="xs:string"/>
+                <xs:element name="KOSTV" type="xs:string"/>
+                <xs:element name="PRCTR" type="xs:string"/>
+                <xs:element name="OPERACIONES" type="ns:listaoperacionesType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="IngresoOrdenServicioResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="RESPONSE" type="xs:string"/>
+                <xs:element name="DETAIL" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IngresoOrdenServicioResponse">
+    <wsdl:part element="tns:IngresoOrdenServicioResponse" name="IngresoOrdenServicioResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="IngresoOrdenServicio">
+    <wsdl:part element="tns:IngresoOrdenServicio" name="IngresoOrdenServicio">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IngresoOrdenServicioPort">
+  </wsdl:portType>
+  <wsdl:binding name="IngresoOrdenServicioPortSoap11" type="tns:IngresoOrdenServicioPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  </wsdl:binding>
+  <wsdl:service name="IngresoOrdenServicioService">
+    <wsdl:port binding="tns:IngresoOrdenServicioPortSoap11" name="IngresoOrdenServicioPortSoap11">
+      <soap:address location="http://localhost:8180/orde-servicio-replica/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
