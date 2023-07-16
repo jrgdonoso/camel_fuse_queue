@@ -1,6 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jd.camel</groupId>
 	<artifactId>KCC-FUSE-ORDENES-SERVICIO-EXTRACCION-COLA</artifactId>
@@ -81,6 +80,9 @@
 		</dependency>
 
 
+
+
+
 		<dependency>
 			<groupId>javax.activation</groupId>
 			<artifactId>activation</artifactId>
@@ -117,57 +119,10 @@
 			<scope>compile</scope>
 		</dependency>
 
-
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-aws2-sqs</artifactId>
-			<version>3.20.1</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-azure-storage-queue -->
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-azure-storage-queue</artifactId>
-			<version>3.20.1</version>
-		</dependency>
-
-
-		<!--<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-http</artifactId>
-			<version>${cxf.version}</version>
-		</dependency>-->
-
-		<!--<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-http4-starter</artifactId>
-		</dependency>-->
-
-		<!--
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-transports-http</artifactId>
-			<version>4.0.1</version>
-		</dependency>-->
-
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http-jetty</artifactId>
-			<version>3.6.0</version>
 		</dependency>
-
-
-		<!--<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>latest</version>
-		</dependency>-->
-
-		<!--<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-cxf-soap</artifactId>
-			<version>${cxf.version}</version>
-		</dependency>-->
 
 		<dependency>
 			<groupId>org.apache.camel</groupId>
@@ -176,37 +131,58 @@
 		</dependency>
 
 
-		<!--	<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-sql</artifactId>
-			<version>${cxf.version}</version>
-		</dependency>-->
-
-
-		<!--<dependency>
+		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>mssql-jdbc</artifactId>
+		</dependency>
+
+
+
+		<!--Colas 
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-aws2-sqs</artifactId>
+			<version>3.20.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-aws2-sqs-starter</artifactId>
+			<version>3.20.0</version>
 		</dependency>-->
 
+		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-azure-storage-queue-->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-azure-storage-queue</artifactId>
+			<version>3.20.0</version>
+		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/jakarta.jws/jakarta.jws-api 
-        <dependency>
-            <groupId>jakarta.jws</groupId>
-            <artifactId>jakarta.jws-api</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-         https://mvnrepository.com/artifact/jakarta.xml.bind/jakarta.xml.bind-api 
-        <dependency>
-            <groupId>jakarta.xml.bind</groupId>
-            <artifactId>jakarta.xml.bind-api</artifactId>
-            <version>3.0.1</version>
-        </dependency>
-         https://mvnrepository.com/artifact/jakarta.xml.ws/jakarta.xml.ws-api 
-        <dependency>
-            <groupId>jakarta.xml.ws</groupId>
-            <artifactId>jakarta.xml.ws-api</artifactId>
-            <version>3.0.1</version>
-        </dependency>   -->
+		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-azure-storage-queue-starter</artifactId>
+			<version>3.20.0</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/io.netty/netty-transport-native-kqueue 
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-transport-native-kqueue</artifactId>
+			<version>4.1.84.Final</version>
+		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/io.netty/netty-transport-native-kqueue 
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-transport-native-kqueue</artifactId>
+			<version>4.1.48.Final-redhat-00001</version>
+		</dependency>
+-->
+
+
+
+
 	</dependencies>
 	<build>
 		<defaultGoal>spring-boot:run</defaultGoal>
@@ -243,6 +219,8 @@
 						<id>generate-sources</id>
 						<phase>generate-sources</phase>
 						<configuration>
+							<!--
+                            <sourceRoot>${project.build.directory}/generated-sources/cxf</sourceRoot>-->
 							<sourceRoot>${basedir}/src/main/java</sourceRoot>
 							<wsdlOptions>
 								<wsdlOption>
@@ -261,26 +239,25 @@
 			</plugin>
 		</plugins>
 	</build>
-
 	<repositories>
-		<repository>
+		<!--<repository>
 			<id>Komatsu_Feed@Local</id>
 			<url>
                 https://pkgs.dev.azure.com/KomatsuLatinoamerica/KCC-ActualizacionFuse/_packaging/Komatsu_Feed%40Local/maven/v1
-            </url>
+			</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
-		</repository>
+		</repository>-->
 		<repository>
 			<id>redhat-ga-repository</id>
 			<url>https://maven.repository.redhat.com/ga</url>
 			<releases />
 			<snapshots>
-				<enabled>false</enabled>
+				<enabled>true</enabled>
 			</snapshots>
 		</repository>
 		<repository>
