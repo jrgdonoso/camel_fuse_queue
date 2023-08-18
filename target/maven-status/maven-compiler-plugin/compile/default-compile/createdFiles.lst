@@ -1,7 +1,4 @@
-cl\komatsu\OrdenServicioExtraccionColaApplication.class
-cl\komatsu\ingresoordenservicio\ListaoperacionesType.class
-cl\komatsu\sqsordenservicioresoextcolakrcc\SqsIngresoOrdenServicioExtCola.class
-cl\komatsu\ingresoordenservicio\ObjectFactory.class
-cl\komatsu\ingresoordenservicio\ListaoperacionesType$OPERACION.class
-cl\komatsu\ingresoordenservicio\package-info.class
-cl\komatsu\sapordenservicioresoextcolakrcc\SapIngresoOrdenServicioExtCola.class
+cl\komatsu\KCCMigracionIntegracionesFuseEntregasKCH.class
+cl\komatsu\config\SQLDataSource.class
+cl\komatsu\security\RouteFacade.class
+cl\komatsu\config\EnviromentVar.class

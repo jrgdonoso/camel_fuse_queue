@@ -1,0 +1,90 @@
+<wsdl:definitions
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:ns1="http://org.apache.axis2/xsd"
+	xmlns:ns="http://entregassap.komatsu.cl"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	targetNamespace="http://entregassap.komatsu.cl">
+	<wsdl:documentation>entregas_sap</wsdl:documentation>
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+			xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+			xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+			xmlns:ns1="http://org.apache.axis2/xsd"
+			xmlns:ns="http://entregassap.komatsu.cl"
+			xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+			xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+			attributeFormDefault="qualified" elementFormDefault="qualified"
+			targetNamespace="http://entregassap.komatsu.cl">
+			<xs:element name="EntregasSap">
+				<xs:complexType>
+					<xs:sequence>
+						 <xs:element name="NUM_ORDEN" type="xs:string"/>
+						 <xs:element name="BUDAT" type="xs:string"/>
+						 <xs:element name="RESERVA" type="xs:string"/>
+						 <xs:element name="RSPOS" type="xs:string"/>
+						 <xs:element name="DOC_MATERIAL" type="xs:string"/>
+						 <xs:element name="MATERIAL" type="xs:string"/>
+						 <xs:element name="CANT_ENTREGADA" type="xs:string"/>
+						 <xs:element name="COSTO" type="xs:string"/>
+						 <xs:element name="CLASE_MOV" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="EntregasSapResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="RESPONSE" type="xs:string" />
+						<xs:element name="DETAIL" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+        </xs:schema>
+	</wsdl:types>
+	<wsdl:message name="EntregasSapRequest">
+		<wsdl:part element="ns:EntregasSap" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="EntregasSapResponse">
+		<wsdl:part element="ns:EntregasSapResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="EntregasSapPortType">
+		<wsdl:operation name="EntregasSap">
+			<wsdl:input message="ns:EntregasSapRequest"
+				wsaw:Action="urn:EntregasSap">
+			</wsdl:input>
+			<wsdl:output message="ns:EntregasSapResponse"
+				wsaw:Action="urn:EntregasSapResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="EntregasSapSoapBinding"
+		type="ns:EntregasSapPortType">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="EntregasSap">
+			<soap:operation soapAction="urn:EntregasSap"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="EntregasSap">
+		<wsdl:port name="EntregasSapSoapEndpoint"
+			binding="ns:EntregasSapSoapBinding">
+			<soap:address
+				location="${ENDPOINTSOAPENTREGASWSDL}" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
